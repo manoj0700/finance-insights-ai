@@ -13,15 +13,22 @@
   "devDependencies": {
     "@types/jest": "^26.0.10",
     "@types/node": "10.17.27",
+    "aws-cdk": "2.19.0",
     "jest": "^26.4.2",
     "ts-jest": "^26.2.0",
-    "aws-cdk": "2.19.0",
     "ts-node": "^9.0.0",
-    "typescript": "~3.9.7"
+    "typescript": "^5.8.3"
   },
   "dependencies": {
-    "aws-cdk-lib": "2.19.0",
-    "constructs": "^10.0.0",
+    "@aws-cdk/aws-events": "^1.204.0",
+    "@aws-cdk/aws-events-targets": "^1.204.0",
+    "@aws-cdk/aws-iam": "^1.204.0",
+    "@aws-cdk/aws-lambda": "^1.204.0",
+    "@aws-cdk/aws-s3": "^1.204.0",
+    "@aws-cdk/aws-s3-notifications": "^1.204.0",
+    "@aws-sdk/client-bedrock-runtime": "^3.816.0",
+    "aws-cdk-lib": "^2.198.0",
+    "constructs": "^10.4.2",
     "source-map-support": "^0.5.16"
   }
 }
