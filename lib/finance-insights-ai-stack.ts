@@ -20,20 +20,20 @@ export class FinanceInsightsAiStack extends Stack {
 
     // Lambda function
     const financeLambda = new lambda.Function(this, 'FinanceProcessor', {
-      runtime: lambda.Runtime.JAVA_11,
-      handler: 'finance.insights.financeInsightsHandler::handleRequest',
-      code: lambda.Code.fromAsset(path.join(__dirname, '../lambda/app/build/libs/app-1.0.jar')),
+      runtime: lambda.Runtime.PYTHON_3_11,
+      handler: 'app.lambda_handler',
+      code: lambda.Code.fromAsset(path.join(__dirname, '../finance-insights-lambda')),
       environment: {
-        BUCKET_NAME: bucket.bucketName,
-        BEDROCK_REGION: 'us-east-1',
-        MODEL_ARN: 'arn:aws:bedrock:us-east-1:200407595956:inference-profile/us.anthropic.claude-3-haiku-20240307-v1:0'
+        BEDROCK_REGION: "us-east-1",
+        MODEL_ARN:
+            "arn:aws:bedrock:us-east-1:200407595956:inference-profile/us.anthropic.claude-3-haiku-20240307-v1:0",
       },
       memorySize: 1024,
       timeout: cdk.Duration.seconds(120),
     });
 
     // Grant Lambda access to S3
-    bucket.grantRead(financeLambda);
+    bucket.grantReadWrite(financeLambda);
 
     // IAM permissions for Bedrock
     financeLambda.addToRolePolicy(new iam.PolicyStatement({
