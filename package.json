@@ -29,6 +29,7 @@
     "@aws-sdk/client-bedrock-runtime": "^3.816.0",
     "aws-cdk-lib": "^2.198.0",
     "constructs": "^10.4.2",
-    "source-map-support": "^0.5.16"
+    "source-map-support": "^0.5.16",
+    "tsc": "^2.0.4"
   }
 }
